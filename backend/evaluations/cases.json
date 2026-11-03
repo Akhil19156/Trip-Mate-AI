@@ -1,0 +1,135 @@
+{
+  "description": "Small reviewed snapshots for repeatable, offline regression scoring. Update recorded outputs from reviewed agent runs before evaluating a new version.",
+  "cases": [
+    {
+      "id": "rishikesh-low-budget",
+      "user_query": "Plan a 3 day trip to rishikesh from Delhi under 4000 INR",
+      "expected": {
+        "constraints": {
+          "destination": "Rishikesh",
+          "duration_days": 3,
+          "budget": "under 4000 INR"
+        },
+        "selected_agents": [
+          "hotel_agent",
+          "weather_agent",
+          "budget_agent",
+          "itinerary_agent"
+        ]
+      },
+      "recorded": {
+        "trip_constraints": {
+          "destination": "Rishikesh",
+          "duration_days": 3,
+          "budget": "under 4000 INR"
+        },
+        "selected_agents": [
+          "hotel_agent",
+          "weather_agent",
+          "budget_agent",
+          "itinerary_agent"
+        ],
+        "budget_breakdown": {
+          "transport": 800,
+          "stay": 1800,
+          "food": 600,
+          "activities": 300,
+          "local_travel": 250,
+          "buffer": 200
+        },
+        "budget_total": 3950,
+        "day_by_day_plan": "## Day-by-day plan\n### Day 1 - Arrival\n- Travel into town and settle in.\n### Day 2 - River and town\n- Explore the riverfront and nearby walking areas.\n### Day 3 - Departure\n- Leave time for the return journey.",
+        "source_facts": [
+          "Dehradun (DED) is the nearest commercial airport to Rishikesh."
+        ],
+        "claims": [
+          "Dehradun (DED) is the nearest commercial airport to Rishikesh."
+        ]
+      }
+    },
+    {
+      "id": "rome-two-day-budget",
+      "user_query": "Plan a 2-day trip to Rome with a budget of EUR 900",
+      "expected": {
+        "constraints": {
+          "destination": "Rome",
+          "duration_days": 2,
+          "budget": "EUR 900"
+        },
+        "selected_agents": [
+          "flight_agent",
+          "hotel_agent",
+          "weather_agent",
+          "budget_agent",
+          "itinerary_agent"
+        ]
+      },
+      "recorded": {
+        "trip_constraints": {
+          "destination": "Rome",
+          "duration_days": 2,
+          "budget": "EUR 900"
+        },
+        "selected_agents": [
+          "flight_agent",
+          "hotel_agent",
+          "weather_agent",
+          "budget_agent",
+          "itinerary_agent"
+        ],
+        "budget_breakdown": {
+          "transport": 240,
+          "stay": 260,
+          "food": 140,
+          "activities": 100,
+          "local_travel": 60,
+          "buffer": 50
+        },
+        "budget_total": 850,
+        "day_by_day_plan": "## Day-by-day plan\n### Day 1 - Historic center\n- Walk through the historic center.\n### Day 2 - Museums and departure\n- Visit a museum area and allow time for departure."
+      }
+    },
+    {
+      "id": "paris-three-day",
+      "user_query": "Plan three days in Paris",
+      "expected": {
+        "constraints": {
+          "destination": "Paris",
+          "duration_days": 3,
+          "budget": ""
+        },
+        "selected_agents": [
+          "flight_agent",
+          "hotel_agent",
+          "weather_agent",
+          "budget_agent",
+          "itinerary_agent"
+        ]
+      },
+      "recorded": {
+        "trip_constraints": {
+          "destination": "Paris",
+          "duration_days": 3,
+          "budget": ""
+        },
+        "selected_agents": [
+          "flight_agent",
+          "hotel_agent",
+          "weather_agent",
+          "budget_agent",
+          "itinerary_agent"
+        ],
+        "budget_breakdown": {
+          "transport": 100,
+          "stay": 300,
+          "food": 150,
+          "activities": 90,
+          "local_travel": 60,
+          "buffer": 50
+        },
+        "budget_total": 750,
+        "day_by_day_plan": "## Day-by-day plan\n### Day 1 - Arrival\n- Explore the local area.\n### Day 2 - City sights\n- Spend the day exploring city sights.\n### Day 3 - Departure\n- Keep the final day flexible."
+      }
+    }
+  ]
+}

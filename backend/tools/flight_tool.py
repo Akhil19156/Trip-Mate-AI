@@ -11,11 +11,13 @@ load_dotenv()
 os.environ["SSL_CERT_FILE"] = certifi.where()
 os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 
-API_KEY = os.getenv("AVIATIONSTACK_API_KEY")
+API_KEY = (
+    os.getenv("AVIATION_STACK_API_KEY")
+    or os.getenv("AVIATIONSTACK_API_KEY")
+)
 
-# Default origin when user says only destination, e.g. "Japan trip"
-# Change this if your default location is not Bangladesh/Dhaka.
-DEFAULT_ORIGIN_IATA = os.getenv("DEFAULT_ORIGIN_IATA", "DAC")
+# Default origin when the user names only a destination.
+DEFAULT_ORIGIN_IATA = os.getenv("DEFAULT_ORIGIN_IATA", "DEL")
 
 
 BASE_URL = "https://api.aviationstack.com/v1/flights"
@@ -327,8 +329,8 @@ def parse_route(query: str):
 
     Can return:
     None, None  -> global live flights
-    DAC, NRT    -> filtered route
-    DAC, None   -> all flights from DAC
+    DEL, NRT    -> filtered route
+    DEL, None   -> all flights from DEL
     None, NRT   -> all flights to NRT
     """
 
